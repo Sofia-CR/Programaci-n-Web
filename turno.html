@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas Médicas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Enlace al archivo CSS separado -->
+    <link rel="stylesheet" href="estilosTurno.css">
+    <!-- Agregar Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <img src="C:\\Users\\sofia\\Documents\\redes\\logo.png" alt="MédicaSur">
+        <div class="menu">
+            <ul id="menuList">
+                <li><a href="pagina1.html">Datos personales</a></li>
+                <li><a href="citas.html">Citas</a></li>
+                <li><a href="medicos.html">Medicos</a></li>
+                <li><a href="pagina4.html">Salud</a></li>
+                <li><a href="pagina5.html">Información</a></li>
+                <li><a href="logout.html">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <h2>CITAS MÉDICAS</h2>
+        <div class="shift-buttons">
+            <button class="button btn btn-primary" onclick="selectShift(this, 'matutino')">Matutino</button>
+            <button class="button btn btn-primary" onclick="selectShift(this, 'vespertino')">Vespertino</button>
+        </div>
+        <div class="button-container">
+            <button class="button btn btn-primary" onclick="continuar()">Continuar</button>
+        </div>
+    </div>
+    <script>
+        let selectedShift = '';
+
+        function toggleMenu() {
+            const menuList = document.getElementById('menuList');
+            menuList.classList.toggle('active');
+        }
+
+        function selectShift(button, shift) {
+            const buttons = document.querySelectorAll('.shift-buttons .button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+            selectedShift = shift;
+            console.log('Turno seleccionado: ' + shift);
+        }
+
+        function continuar() {
+            if (selectedShift) {
+                window.location.href = 'eligemedico.html';
+            } else {
+                alert('Por favor, selecciona un turno antes de continuar.');
+            }
+        }
+    </script>
+    <!-- Agregar Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
